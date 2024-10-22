@@ -4,6 +4,8 @@ import MenuHospitales from './MenuHospitales'
 import Home from './Home'
 import Doctores from './Doctores'
 import DetalleDoctor from './DetalleDoctor'
+import CreateHospital from './CreateHospital'
+import Hospitales from './Hospitales'
 
 export default class Router extends Component {
     render() {
@@ -12,10 +14,7 @@ export default class Router extends Component {
             let {idhospital} = useParams();
             return <Doctores idhospital={idhospital}/>
         }
-        function DoctorElemnt(){
-            let {idhospital , iddoctor} = useParams();
-            return <DetalleDoctor idhospital={idhospital} iddoctor={iddoctor}/>
-        }
+        
 
         return (
             <BrowserRouter>
@@ -23,7 +22,9 @@ export default class Router extends Component {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path='doctores/:idhospital' element={<DoctoresElement/>}/>
-                    {/* <Route path='doctores/:idhospital/:iddoctor' element={<DoctorElemnt/>}/> */}
+                    <Route path='/create' element={<CreateHospital/>}/>
+                    <Route path='/hospitales' element={<Hospitales/>}/>
+                    
                 </Routes>
             </BrowserRouter>
         )
